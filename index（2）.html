@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄麟 | AI 应用探索者</title>
+    
+    <!-- 1. 引入更高级的字体：Inter (正文) 和 Fira Code (代码/技能) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- 2. 引入 AOS 滚动动画的 CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ================= 视觉质感：深色模式与基础排版 ================= */
+        :root {
+            --bg-color: #0f172a; /* 高级深灰蓝色 */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #00ff88; /* 科技感荧光绿点缀 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ================= 毛玻璃导航栏 ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-sizing: border-box;
+            z-index: 1000;
+            /* 核心：毛玻璃效果 */
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* ================= Header 首屏排版 ================= */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            padding-top: 80px; /* 避开导航栏 */
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        /* 打字机文字的颜色 */
+        .typed-text {
+            color: var(--accent-color);
+            font-family: 'Fira Code', monospace;
+            font-size: 1.5rem;
+        }
+
+        .header-content p {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .skills-tags span {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 0 10px 10px 0;
+            font-size: 0.9rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .skills-tags span:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        /* 头像样式加一点微发光 */
+        .header-image img {
+            width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.15);
+        }
+
+        /* ================= 通用 Section 样式 ================= */
+        section {
+            padding: 100px 10%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        section p.subtitle {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo" style="font-weight: 800; font-size: 1.2rem;">
+            <span>HL</span>.
+        </div>
+        <ul>
+            <li><a href="#about">关于</a></li>
+            <li><a href="#highlights">亮点</a></li>
+            <li><a href="#experience">经历</a></li>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#skills">技能</a></li>
+        </ul>
+    </nav>
+
+    <!-- 首屏介绍 -->
+    <header id="about">
+        <!-- data-aos="fade-right" 让内容从左侧平滑滑入 -->
+        <div class="header-content" data-aos="fade-right" data-aos-duration="1000">
+            <span style="color: var(--accent-color); font-family: 'Fira Code';">AI × Code × Visual Art</span>
+            <h1>黄麟</h1>
+            <!-- 打字机效果的容器 -->
+            <div style="height: 40px; margin-bottom: 20px;">
+                <span class="typed-text"></span>
+            </div>
+            <p>
+                华南师范大学本科在读，专注于 <strong>AI 应用、编程开发与视觉创作</strong> 的交叉探索。持续通过生成式 AI、Prompt Engineering 与前端技术，将创意转化为可交互的数字作品。
+            </p>
+            <div class="skills-tags">
+                <span>🤖 生成式 AI</span>
+                <span>💡 Prompt Engineering</span>
+                <span>💻 前端开发</span>
+                <span>🎨 视觉设计</span>
+            </div>
+        </div>
+        
+        <!-- data-aos="fade-left" 让头像从右侧平滑滑入 -->
+        <div class="header-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <img src="头像.png" alt="黄麟的头像">
+        </div>
+    </header>
+
+    <!-- 亮点成果 (滚动到这里时会自动触发上浮动画) -->
+    <section id="highlights" data-aos="fade-up" data-aos-duration="800">
+        <h2>亮点成果</h2>
+        <p class="subtitle">> 用数据与行动证明能力</p>
+        <div>
+            <!-- 在这里填入你的具体项目卡片 HTML，它们会一起享受上浮动画 -->
+            <p style="color: var(--text-muted);">（这里放入你原本的亮点内容...）</p>
+        </div>
+    </section>
+
+    <!-- 经历 -->
+    <section id="experience" data-aos="fade-up" data-aos-duration="800">
+        <h2>经历</h2>
+        <p class="subtitle">> 工作实践与校园成长</p>
+        <div>
+            <!-- 填入经历内容 -->
+            <p style="color: var(--text-muted);">（这里放入你原本的经历内容...）</p>
+        </div>
+    </section>
+
+    <!-- 其他板块依此类推... -->
+
+
+    <!-- ================= 引入动态效果脚本 ================= -->
+    
+    <!-- 1. 引入 AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- 2. 引入 Typed.js (打字机效果) -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- 初始化动画 -->
+    <script>
+        // 初始化 AOS 滚动动画
+        AOS.init({
+            once: true, // 动画是否只触发一次
+            offset: 100 // 距离底部多少像素开始触发动画
+        });
+
+        // 初始化 Typed.js 打字机效果
+        var typed = new Typed('.typed-text', {
+            strings: ['AI 应用探索者', '编程开发者', '视觉创作者', '舞台表达热爱者'],
+            typeSpeed: 80,   // 打字速度
+            backSpeed: 50,   // 回退速度
+            backDelay: 1500, // 停留时间
+            loop: true       // 循环播放
+        });
+    </script>
+</body>
+</html>
